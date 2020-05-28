@@ -1,8 +1,5 @@
 package com.example.Temporary.models;
-
-
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "real_pizza")
