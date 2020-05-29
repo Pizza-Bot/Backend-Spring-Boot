@@ -1,4 +1,4 @@
-#Interactive Pizza Ordering Chat Bot
+# Interactive Pizza Ordering Chat Bot
 
 A Chatbot that can let people order pizza online The bot will display the menu to the customer. 
 The user will select a pizza along with quantity and toppings Special Discount will be provided to the customer if the order exceeds above 500. 
