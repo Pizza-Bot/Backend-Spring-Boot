@@ -5,7 +5,7 @@ import com.example.Temporary.models.Sizes;
 
 import java.util.List;
 
-public interface iSize {
+public interface ISize {
 
     Sizes createSize(SizesDTO sizesDTO);
 

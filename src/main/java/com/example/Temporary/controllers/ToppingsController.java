@@ -2,7 +2,7 @@ package com.example.Temporary.controllers;
 
 import com.example.Temporary.dto.ToppingsDTO;
 import com.example.Temporary.models.Toppings;
-import com.example.Temporary.service_impl.iToppings;
+import com.example.Temporary.service_impl.IToppings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import java.util.List;
 public class ToppingsController {
 
     @Autowired
-    iToppings itoppings;
+    IToppings itoppings;
 
     @PostMapping
     public ResponseEntity<Toppings> createTopping(@RequestBody ToppingsDTO toppingsDTO){

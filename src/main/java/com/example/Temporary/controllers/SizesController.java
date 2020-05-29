@@ -3,7 +3,7 @@ package com.example.Temporary.controllers;
 
 import com.example.Temporary.dto.SizesDTO;
 import com.example.Temporary.models.Sizes;
-import com.example.Temporary.service_impl.iSize;
+import com.example.Temporary.service_impl.ISize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import java.util.List;
 public class SizesController {
 
     @Autowired
-    iSize size;
+    ISize size;
 
     @PostMapping
     public ResponseEntity<Sizes> createOne(@RequestBody SizesDTO sizesDTO){

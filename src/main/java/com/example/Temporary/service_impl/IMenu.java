@@ -5,7 +5,7 @@ import com.example.Temporary.models.Menu;
 
 import java.util.List;
 
-public interface iMenu {
+public interface IMenu {
 
     public Menu createMenu(MenuDTO menuDTO);
 

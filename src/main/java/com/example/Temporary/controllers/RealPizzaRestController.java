@@ -2,7 +2,7 @@ package com.example.Temporary.controllers;
 
 import com.example.Temporary.dto.RealPizzaDTO;
 import com.example.Temporary.models.RealPizza;
-import com.example.Temporary.service_impl.iRealPizza;
+import com.example.Temporary.service_impl.IRealPizza;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import java.util.List;
 public class RealPizzaRestController {
 
     @Autowired
-    iRealPizza iRealPizza;
+    IRealPizza iRealPizza;
 
     @PostMapping
     public ResponseEntity<RealPizza> createPizza(@RequestBody RealPizzaDTO realPizzaDTO){
