@@ -57,10 +57,15 @@ public class TotalOrderImpl implements ITotalOrder{
 
         totalOrder.setRawTotal(sumOfPizzaorders);
 
-        Double calculatedPrice = calculatedDiscountPrice(sumOfPizzaorders, discount.getDiscountCalculationPercentage());
+//      Applying Discount when Amount is over 500
+        if(sumOfPizzaorders > 500) {
+            Double calculatedPrice = calculatedDiscountPrice(sumOfPizzaorders, discount.getDiscountCalculationPercentage());
 
-        totalOrder.setDiscountedPrice(calculatedPrice);
-
+            totalOrder.setDiscountedPrice(calculatedPrice);
+        }
+        else{
+            totalOrder.setDiscountedPrice(sumOfPizzaorders);
+        }
         return totalOrderDao.save(totalOrder);
     }
 
