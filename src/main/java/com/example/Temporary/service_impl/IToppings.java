@@ -5,7 +5,7 @@ import com.example.Temporary.models.Toppings;
 
 import java.util.List;
 
-public interface iToppings {
+public interface IToppings {
 
     Toppings createTopping(ToppingsDTO toppingsDTO);
 

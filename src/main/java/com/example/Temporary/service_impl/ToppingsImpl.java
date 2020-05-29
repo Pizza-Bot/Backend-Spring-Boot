@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ToppingsImpl implements iToppings{
+public class ToppingsImpl implements IToppings {
 
     @Autowired
     ToppingsDao toppingsDao;

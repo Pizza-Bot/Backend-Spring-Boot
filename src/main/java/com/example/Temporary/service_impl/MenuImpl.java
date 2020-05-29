@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class MenuImpl implements iMenu {
+public class MenuImpl implements IMenu {
 
     @Autowired
     MenuDao menuDao;

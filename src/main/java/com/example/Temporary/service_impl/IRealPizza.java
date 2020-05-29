@@ -5,7 +5,7 @@ import com.example.Temporary.models.RealPizza;
 
 import java.util.List;
 
-public interface iRealPizza {
+public interface IRealPizza {
 
     RealPizza createRealPizza(RealPizzaDTO realPizzaDTO);
 
