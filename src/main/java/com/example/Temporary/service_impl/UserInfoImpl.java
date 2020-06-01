@@ -41,7 +41,23 @@ public class UserInfoImpl implements IUserInfo{
     }
 
     @Override
-    public UserInfo updateUserInfo(UserInfo userInfo) {
+    public UserInfo updateUserInfo(Long id, UserInfoDTO userInfoDTO) {
+
+        UserInfo userInfo = userInfoDao.getOne(id);
+
+        TotalOrder totalOrder = totalOrderDao.getOne(userInfo.getUserInfoId());
+
+        userInfo.setTotalOrder(totalOrder);
+
+        userInfo.setUserName(userInfoDTO.getUserName());
+
+        userInfo.setUserPhone(userInfoDTO.getUserPhone());
+
+        userInfo.setUserAddress(userInfoDTO.getUserAddress());
+
+        userInfo.setPaymentMethod(userInfoDTO.getPaymentMethod());
+
+
         return userInfoDao.save(userInfo);
     }
 

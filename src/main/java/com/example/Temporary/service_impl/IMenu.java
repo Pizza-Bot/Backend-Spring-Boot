@@ -9,7 +9,7 @@ public interface IMenu {
 
     public Menu createMenu(MenuDTO menuDTO);
 
-    public Menu updateMenu(Menu menu);
+    public Menu updateMenu(Long id, MenuDTO menuDTO );
 
     public String deleteMenu(Long id);
 

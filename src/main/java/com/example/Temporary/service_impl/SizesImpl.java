@@ -28,7 +28,14 @@ public class SizesImpl implements ISize {
     }
 
     @Override
-    public Sizes updateSize(Sizes sizes) {
+    public Sizes updateSize(Long id, SizesDTO sizesDTO) {
+
+        Sizes sizes = sizesDao.getOne(id);
+
+        sizes.setSizeName(sizesDTO.getSizeName());
+
+        sizes.setSizePrice(sizesDTO.getSizePrice());
+
         return sizesDao.save(sizes);
     }
 

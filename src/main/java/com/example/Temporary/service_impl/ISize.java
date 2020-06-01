@@ -9,7 +9,7 @@ public interface ISize {
 
     Sizes createSize(SizesDTO sizesDTO);
 
-    Sizes updateSize(Sizes sizes);
+    Sizes updateSize(Long id, SizesDTO sizesDTO);
 
     String deleteSize(Long id);
 

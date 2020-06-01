@@ -27,7 +27,15 @@ public class RealPizzaimpl implements IRealPizza {
     }
 
     @Override
-    public RealPizza updateRealPizza(RealPizza realPizza) {
+    public RealPizza updateRealPizza(Long id, RealPizzaDTO realPizzaDTO) {
+
+        RealPizza realPizza = realPizzaDao.getOne(id);
+
+        realPizza.setRealPizzaName(realPizzaDTO.getRealPizzaName());
+
+        realPizza.setBasePizzaPrice(realPizzaDTO.getBasePizzaPrice());
+
+
         return realPizzaDao.save(realPizza);
     }
 

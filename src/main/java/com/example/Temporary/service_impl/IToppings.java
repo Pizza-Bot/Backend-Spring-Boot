@@ -9,7 +9,7 @@ public interface IToppings {
 
     Toppings createTopping(ToppingsDTO toppingsDTO);
 
-    Toppings updateTopping(Toppings toppings);
+    Toppings updateTopping(Long id, ToppingsDTO toppingsDTO);
 
     String deleteTopping(Long id);
 
