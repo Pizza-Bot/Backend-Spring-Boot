@@ -6,6 +6,7 @@ import com.example.Temporary.dao.SizesDao;
 import com.example.Temporary.dao.ToppingsDao;
 import com.example.Temporary.dto.PizzaOrderDTO;
 import com.example.Temporary.models.PizzaOrder;
+import com.example.Temporary.models.Sizes;
 import com.example.Temporary.models.Toppings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,7 +53,9 @@ public class PizzaOrderImpl implements IPizzaOrder {
 
         pizzaOrder.setSizes(sizesDao.getOne(pizzaOrderDTO.getSizeId()));
 
-        Double calculatePrice = (realPizzaDao.getOne(pizzaOrderDTO.getRealPizzaId()).getBasePizzaPrice() * pizzaOrderDTO.getQuantity()) + sumOfToppings;
+        Sizes size = sizesDao.getOne(pizzaOrderDTO.getSizeId());
+
+        Double calculatePrice = (realPizzaDao.getOne(pizzaOrderDTO.getRealPizzaId()).getBasePizzaPrice() * pizzaOrderDTO.getQuantity()) + sumOfToppings + size.getSizePrice();
 
         pizzaOrder.setPizzaCalculatedPrice(calculatePrice);
 
@@ -82,7 +85,9 @@ public class PizzaOrderImpl implements IPizzaOrder {
 
         pizzaOrder.setSizes(sizesDao.getOne(pizzaOrderDTO.getSizeId()));
 
-        Double calculatePrice = (realPizzaDao.getOne(pizzaOrderDTO.getRealPizzaId()).getBasePizzaPrice() * pizzaOrderDTO.getQuantity()) + sumOfToppings;
+        Sizes size = sizesDao.getOne(pizzaOrderDTO.getSizeId());
+
+        Double calculatePrice = (realPizzaDao.getOne(pizzaOrderDTO.getRealPizzaId()).getBasePizzaPrice() * pizzaOrderDTO.getQuantity()) + sumOfToppings + size.getSizePrice();
 
         pizzaOrder.setPizzaCalculatedPrice(calculatePrice);
 
