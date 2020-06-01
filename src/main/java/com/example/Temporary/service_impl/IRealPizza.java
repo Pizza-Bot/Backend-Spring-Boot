@@ -9,7 +9,7 @@ public interface IRealPizza {
 
     RealPizza createRealPizza(RealPizzaDTO realPizzaDTO);
 
-    RealPizza updateRealPizza(RealPizza realPizza);
+    RealPizza updateRealPizza(Long id, RealPizzaDTO realPizzaDTO);
 
     String deletePizza(Long id);
 

@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class RealPizza {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "real_pizza_id")
     private Long realPizzaId;
 

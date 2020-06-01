@@ -22,9 +22,9 @@ public class DiscountRestController {
         return new ResponseEntity<>(iDiscount.craeteDiscount(discountDTO), HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<Discount> updateDiscount(@RequestBody Discount discount){
-        return new ResponseEntity<>(iDiscount.updateDiscount(discount), HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<Discount> updateDiscount(@PathVariable("id") Long id, @RequestBody DiscountDTO discountDTO){
+        return new ResponseEntity<>(iDiscount.updateDiscount(id, discountDTO), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

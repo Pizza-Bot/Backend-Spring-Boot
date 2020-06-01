@@ -1,5 +1,4 @@
 package com.example.Temporary.controllers;
-
 import com.example.Temporary.dto.PizzaOrderDTO;
 import com.example.Temporary.models.PizzaOrder;
 import com.example.Temporary.service_impl.IPizzaOrder;
@@ -23,8 +22,8 @@ public class PizzaOrderController {
     }
 
     @PutMapping
-    public ResponseEntity<PizzaOrder> updatePizzaOrder(@RequestBody PizzaOrder pizzaOrder){
-        return new ResponseEntity<>(iPizzaOrder.updatePizza(pizzaOrder), HttpStatus.OK);
+    public ResponseEntity<PizzaOrder> updatePizzaOrder(@PathVariable("id") Long id, @RequestBody PizzaOrderDTO pizzaOrderDTO){
+        return new ResponseEntity<>(iPizzaOrder.updatePizza(id, pizzaOrderDTO), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

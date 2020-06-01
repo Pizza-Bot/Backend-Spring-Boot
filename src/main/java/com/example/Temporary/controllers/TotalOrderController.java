@@ -22,9 +22,9 @@ public class TotalOrderController {
         return new ResponseEntity<>(iTotalOrder.createTotalOrder(totalOrderDTO), HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<TotalOrder> updateTotalOrder(@RequestBody TotalOrder totalOrder){
-        return new ResponseEntity<>(iTotalOrder.updateTotalOrder(totalOrder), HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<TotalOrder> updateTotalOrder(@PathVariable("id") Long id, @RequestBody TotalOrderDTO totalOrderDTO){
+        return new ResponseEntity<>(iTotalOrder.updateTotalOrder(id, totalOrderDTO), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

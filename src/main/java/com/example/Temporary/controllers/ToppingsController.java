@@ -22,9 +22,9 @@ public class ToppingsController {
         return new ResponseEntity<>(itoppings.createTopping(toppingsDTO), HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<Toppings> updateTopping(@RequestBody Toppings toppings){
-        return new ResponseEntity<>(itoppings.updateTopping(toppings), HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<Toppings> updateTopping(@PathVariable("id") Long id, @RequestBody ToppingsDTO toppingsDTO){
+        return new ResponseEntity<>(itoppings.updateTopping(id, toppingsDTO), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

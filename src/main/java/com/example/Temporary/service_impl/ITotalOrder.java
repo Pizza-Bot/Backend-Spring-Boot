@@ -9,7 +9,7 @@ public interface ITotalOrder {
 
     TotalOrder createTotalOrder(TotalOrderDTO totalOrderDTO);
 
-    TotalOrder updateTotalOrder(TotalOrder totalOrder);
+    TotalOrder updateTotalOrder(Long id, TotalOrderDTO totalOrderDTO);
 
     String deleteTotalOrder(Long id);
 

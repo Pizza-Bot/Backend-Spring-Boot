@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
 import java.util.List;
 
 @RestController
@@ -26,9 +25,9 @@ public class MenuRestController {
 
     }
 
-    @PutMapping
-    public ResponseEntity<Menu> updateMenu(@RequestBody Menu menu){
-        return new ResponseEntity<>(menuImpl.updateMenu(menu), HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<Menu> updateMenu(@PathVariable("id") Long id,  @RequestBody MenuDTO menuDTO){
+        return new ResponseEntity<>(menuImpl.updateMenu(id, menuDTO), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

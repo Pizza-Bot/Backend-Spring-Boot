@@ -8,7 +8,7 @@ import java.util.List;
 public class TotalOrder {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "total_order_id")
     private Long totalOrderId;
 

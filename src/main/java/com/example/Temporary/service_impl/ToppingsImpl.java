@@ -27,7 +27,15 @@ public class ToppingsImpl implements IToppings {
     }
 
     @Override
-    public Toppings updateTopping(Toppings toppings) {
+    public Toppings updateTopping(Long id, ToppingsDTO toppingsDTO) {
+
+        Toppings toppings = toppingsDao.getOne(id);
+
+        toppings.setToppingsName(toppingsDTO.getToppingsName());
+
+        toppings.setToppingsPrice(toppingsDTO.getToppingsPrice());
+
+
         return toppingsDao.save(toppings);
     }
 

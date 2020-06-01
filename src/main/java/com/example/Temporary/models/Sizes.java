@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Sizes {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "size_id")
     private Long sizeId;
 

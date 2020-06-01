@@ -1,6 +1,5 @@
 package com.example.Temporary.controllers;
 
-
 import com.example.Temporary.dto.SizesDTO;
 import com.example.Temporary.models.Sizes;
 import com.example.Temporary.service_impl.ISize;
@@ -23,9 +22,9 @@ public class SizesController {
         return new ResponseEntity<>(size.createSize(sizesDTO), HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<Sizes> update(@RequestBody Sizes sizes){
-        return new ResponseEntity<>(size.updateSize(sizes), HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<Sizes> update(@PathVariable("id") Long id, @RequestBody SizesDTO sizesDTO){
+        return new ResponseEntity<>(size.updateSize(id, sizesDTO), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

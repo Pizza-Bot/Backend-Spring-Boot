@@ -22,9 +22,9 @@ public class RealPizzaRestController {
         return new ResponseEntity<>(iRealPizza.createRealPizza(realPizzaDTO), HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<RealPizza> updatePizza(@RequestBody RealPizza realPizza){
-        return new ResponseEntity<>(iRealPizza.updateRealPizza(realPizza), HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<RealPizza> updatePizza(@PathVariable("id") Long id, @RequestBody RealPizzaDTO realPizzaDTO){
+        return new ResponseEntity<>(iRealPizza.updateRealPizza(id, realPizzaDTO), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

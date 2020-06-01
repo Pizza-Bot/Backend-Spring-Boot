@@ -1,10 +1,11 @@
 package com.example.Temporary.controllers;
 
 
+
 import com.example.Temporary.dto.UserInfoDTO;
 import com.example.Temporary.models.UserInfo;
 import com.example.Temporary.service_impl.IUserInfo;
-import org.apache.catalina.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +26,9 @@ public class UserInfoController {
         return new ResponseEntity<>(iUserInfo.createUserInfo(userInfoDTO), HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<UserInfo> updateUserInfo(@RequestBody UserInfo userInfo){
-        return new ResponseEntity<>(iUserInfo.updateUserInfo(userInfo), HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<UserInfo> updateUserInfo(@PathVariable("id") Long id, @RequestBody UserInfoDTO userInfoDTO){
+        return new ResponseEntity<>(iUserInfo.updateUserInfo(id, userInfoDTO), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

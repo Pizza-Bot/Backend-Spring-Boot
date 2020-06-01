@@ -10,7 +10,7 @@ import java.util.List;
 public class PizzaOrder {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pizza_order_id")
     private Long pizzaOrderId;
 

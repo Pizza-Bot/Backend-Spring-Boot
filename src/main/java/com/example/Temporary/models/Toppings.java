@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Toppings {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "toppings_id")
     private Long toppingsId;
 

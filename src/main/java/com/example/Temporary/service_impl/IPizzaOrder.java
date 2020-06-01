@@ -9,7 +9,7 @@ public interface IPizzaOrder {
 
     PizzaOrder createPizzaorder(PizzaOrderDTO pizzaOrderDTO);
 
-    PizzaOrder updatePizza(PizzaOrder pizzaOrder);
+    PizzaOrder updatePizza(Long id, PizzaOrderDTO pizzaOrderDTO);
 
     String deletePizza(Long id);
 
