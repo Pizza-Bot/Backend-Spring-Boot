@@ -35,7 +35,7 @@ public class PizzaOrderController {
 			@ApiResponse(responseCode = "400", description = "Bad Request"),
 			@ApiResponse(responseCode = "403", description = "Forbidden"),
 			@ApiResponse(responseCode = "500", description = "Server Error") })
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<PizzaOrder> updatePizzaOrder(@PathVariable("id") Long id, @RequestBody PizzaOrderDTO pizzaOrderDTO){
         return new ResponseEntity<>(iPizzaOrder.updatePizza(id, pizzaOrderDTO), HttpStatus.OK);
     }
