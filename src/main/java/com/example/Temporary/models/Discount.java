@@ -18,8 +18,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 public class Discount {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "discountId")
-	@SequenceGenerator(initialValue = 7000, allocationSize = 1, name = "discountId")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@SequenceGenerator(initialValue = 7000, allocationSize = 1, name = "discountId")
 	@Column(name = "discount_id")
 	private Long discountId;
 
