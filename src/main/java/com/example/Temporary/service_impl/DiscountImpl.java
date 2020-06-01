@@ -27,7 +27,14 @@ public class DiscountImpl implements IDiscount {
     }
 
     @Override
-    public Discount updateDiscount(Discount discount) {
+    public Discount updateDiscount(Long id, DiscountDTO discountDTO) {
+
+        Discount discount = discountDao.getOne(id);
+
+        discount.setDiscountName(discountDTO.getDiscountName());
+
+        discount.setDiscountCalculationPercentage(discountDTO.getDiscountCalculationPercentage());
+
         return discountDao.save(discount);
     }
 

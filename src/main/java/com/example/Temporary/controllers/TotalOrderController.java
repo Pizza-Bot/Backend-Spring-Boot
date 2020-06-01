@@ -36,9 +36,9 @@ public class TotalOrderController {
 			@ApiResponse(responseCode = "400", description = "Bad Request"),
 			@ApiResponse(responseCode = "403", description = "Forbidden"),
 			@ApiResponse(responseCode = "500", description = "Server Error") })
-    @PutMapping
-    public ResponseEntity<TotalOrder> updateTotalOrder(@RequestBody TotalOrder totalOrder){
-        return new ResponseEntity<>(iTotalOrder.updateTotalOrder(totalOrder), HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<TotalOrder> updateTotalOrder(@PathVariable("id") Long id, @RequestBody TotalOrderDTO totalOrderDTO){
+        return new ResponseEntity<>(iTotalOrder.updateTotalOrder(id, totalOrderDTO), HttpStatus.OK);
     }
 
     @Operation(summary = "Delete TotalOrder by TotalOrder Id", description = "To delete an TotalOrder by it's TotalOrder id.", responses = {

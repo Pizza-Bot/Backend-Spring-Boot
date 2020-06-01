@@ -14,11 +14,11 @@ import java.util.List;
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class PizzaOrder {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pizzaOrderId")
-	@SequenceGenerator(initialValue = 1000, allocationSize = 1, name = "pizzaOrderId")
-	@Column(name = "pizza_order_id")
-	private Long pizzaOrderId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pizza_order_id")
+    private Long pizzaOrderId;
 
 	@OneToOne
 	@JoinColumn(name = "real_pizza_id")

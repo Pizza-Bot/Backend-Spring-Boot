@@ -11,11 +11,11 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Toppings {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "toppingsId")
-	@SequenceGenerator(initialValue = 4000, allocationSize = 1, name = "toppingsId")
-	@Column(name = "toppings_id")
-	private Long toppingsId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "toppings_id")
+    private Long toppingsId;
 
 	@Column(name = "toppings_name")
 	private String toppingsName;

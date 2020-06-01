@@ -9,7 +9,7 @@ public interface IDiscount {
 
     Discount craeteDiscount(DiscountDTO discountDTO);
 
-    Discount updateDiscount(Discount discount);
+    Discount updateDiscount(Long id, DiscountDTO discountDTO);
 
     String deleteDiscount(Long id);
 

@@ -18,57 +18,57 @@ import java.util.List;
 @RequestMapping("/realpizza")
 public class RealPizzaRestController {
 
-    @Autowired
-    IRealPizza iRealPizza;
+	@Autowired
+	IRealPizza iRealPizza;
 
-    @Operation(summary = "Create RealPizza", description = "Creation Of RealPizza. ", responses = {
+	@Operation(summary = "Create RealPizza", description = "Creation Of RealPizza. ", responses = {
 			@ApiResponse(responseCode = "200", description = "Success"),
 			@ApiResponse(responseCode = "404", description = "PageNotFound"),
 			@ApiResponse(responseCode = "500", description = "Server Error") })
-    @PostMapping
-    public ResponseEntity<RealPizza> createPizza(@RequestBody RealPizzaDTO realPizzaDTO){
-        return new ResponseEntity<>(iRealPizza.createRealPizza(realPizzaDTO), HttpStatus.OK);
-    }
+	@PostMapping
+	public ResponseEntity<RealPizza> createPizza(@RequestBody RealPizzaDTO realPizzaDTO) {
+		return new ResponseEntity<>(iRealPizza.createRealPizza(realPizzaDTO), HttpStatus.OK);
+	}
 
-    @Operation(summary = "Update RealPizza details by Id", description = "To update all the details in the RealPizza by Id.", responses = {
+	@Operation(summary = "Update RealPizza details by Id", description = "To update all the details in the RealPizza by Id.", responses = {
 			@ApiResponse(responseCode = "200", description = "Success"),
 			@ApiResponse(responseCode = "204", description = "No Content"),
 			@ApiResponse(responseCode = "400", description = "Bad Request"),
 			@ApiResponse(responseCode = "403", description = "Forbidden"),
 			@ApiResponse(responseCode = "500", description = "Server Error") })
-    @PutMapping
-    public ResponseEntity<RealPizza> updatePizza(@RequestBody RealPizza realPizza){
-        return new ResponseEntity<>(iRealPizza.updateRealPizza(realPizza), HttpStatus.OK);
-    }
+	@PutMapping("/{id}")
+	public ResponseEntity<RealPizza> updatePizza(@PathVariable("id") Long id, @RequestBody RealPizzaDTO realPizzaDTO) {
+		return new ResponseEntity<>(iRealPizza.updateRealPizza(id, realPizzaDTO), HttpStatus.OK);
+	}
 
-    @Operation(summary = "Delete RealPizza by RealPizza Id", description = "To delete an RealPizza by it's RealPizza id.", responses = {
+	@Operation(summary = "Delete RealPizza by RealPizza Id", description = "To delete an RealPizza by it's RealPizza id.", responses = {
 			@ApiResponse(responseCode = "200", description = "Success"),
 			@ApiResponse(responseCode = "204", description = "No Content"),
 			@ApiResponse(responseCode = "403", description = "Forbidden"),
 			@ApiResponse(responseCode = "500", description = "Server Error") })
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletePizza(@PathVariable("id") Long id){
-        return new ResponseEntity<>(iRealPizza.deletePizza(id), HttpStatus.OK);
-    }
+	@DeleteMapping("/{id}")
+	public ResponseEntity<String> deletePizza(@PathVariable("id") Long id) {
+		return new ResponseEntity<>(iRealPizza.deletePizza(id), HttpStatus.OK);
+	}
 
-    @Operation(summary = "List of RealPizza by Id", description = "To fetch list of RealPizza by Id", responses = {
+	@Operation(summary = "List of RealPizza by Id", description = "To fetch list of RealPizza by Id", responses = {
 			@ApiResponse(responseCode = "200", description = "Success"),
 			@ApiResponse(responseCode = "204", description = "No Content"),
 			@ApiResponse(responseCode = "403", description = "Forbidden"),
 			@ApiResponse(responseCode = "500", description = "Server Error") })
-    @GetMapping("/{id}")
-    public ResponseEntity<RealPizza> getOne(@PathVariable("id") Long id){
-        return new ResponseEntity<>(iRealPizza.getOne(id), HttpStatus.OK);
-    }
+	@GetMapping("/{id}")
+	public ResponseEntity<RealPizza> getOne(@PathVariable("id") Long id) {
+		return new ResponseEntity<>(iRealPizza.getOne(id), HttpStatus.OK);
+	}
 
-    @Operation(summary = "List of RealPizza details", description = "To fetch list of RealPizza", responses = {
+	@Operation(summary = "List of RealPizza details", description = "To fetch list of RealPizza", responses = {
 			@ApiResponse(responseCode = "200", description = "Success"),
 			@ApiResponse(responseCode = "204", description = "No Content"),
 			@ApiResponse(responseCode = "403", description = "Forbidden"),
 			@ApiResponse(responseCode = "500", description = "Server Error") })
-    @GetMapping
-    public ResponseEntity<List<RealPizza>> getAll(){
-        return new ResponseEntity<>(iRealPizza.getAll(), HttpStatus.OK);
-    }
+	@GetMapping
+	public ResponseEntity<List<RealPizza>> getAll() {
+		return new ResponseEntity<>(iRealPizza.getAll(), HttpStatus.OK);
+	}
 
 }

@@ -36,9 +36,10 @@ public class DiscountRestController {
 			@ApiResponse(responseCode = "400", description = "Bad Request"),
 			@ApiResponse(responseCode = "403", description = "Forbidden"),
 			@ApiResponse(responseCode = "500", description = "Server Error") })
-    @PutMapping
-    public ResponseEntity<Discount> updateDiscount(@RequestBody Discount discount){
-        return new ResponseEntity<>(iDiscount.updateDiscount(discount), HttpStatus.OK);
+   
+    @PutMapping("/{id}")
+    public ResponseEntity<Discount> updateDiscount(@PathVariable("id") Long id, @RequestBody DiscountDTO discountDTO){
+        return new ResponseEntity<>(iDiscount.updateDiscount(id, discountDTO), HttpStatus.OK);
     }
     
 

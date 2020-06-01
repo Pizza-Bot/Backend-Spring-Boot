@@ -36,9 +36,9 @@ public class ToppingsController {
 			@ApiResponse(responseCode = "400", description = "Bad Request"),
 			@ApiResponse(responseCode = "403", description = "Forbidden"),
 			@ApiResponse(responseCode = "500", description = "Server Error") })
-    @PutMapping
-    public ResponseEntity<Toppings> updateTopping(@RequestBody Toppings toppings){
-        return new ResponseEntity<>(itoppings.updateTopping(toppings), HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<Toppings> updateTopping(@PathVariable("id") Long id, @RequestBody ToppingsDTO toppingsDTO){
+        return new ResponseEntity<>(itoppings.updateTopping(id, toppingsDTO), HttpStatus.OK);
     }
 
     @Operation(summary = "Delete Toppings by Toppings Id", description = "To delete an Toppings by it's Toppings id.", responses = {

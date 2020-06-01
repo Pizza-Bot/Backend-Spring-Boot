@@ -14,8 +14,7 @@ import java.util.List;
 public class TotalOrder {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "totalOrderId")
-	@SequenceGenerator(initialValue = 5000, allocationSize = 1, name = "totalOrderId")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "total_order_id")
 	private Long totalOrderId;
 

@@ -70,7 +70,43 @@ public class TotalOrderImpl implements ITotalOrder{
     }
 
     @Override
-    public TotalOrder updateTotalOrder(TotalOrder totalOrder) {
+    public TotalOrder updateTotalOrder(Long id, TotalOrderDTO totalOrderDTO) {
+
+        TotalOrder totalOrder = totalOrderDao.getOne(id);
+
+        Double sumOfPizzaorders = 0.0;
+
+        List<PizzaOrder> pizzaOrderList = new ArrayList<>();
+
+        Discount discount = discountDao.getOne(totalOrderDTO.getDiscountId());
+
+        for(Long i : totalOrderDTO.getPizzaOrders()){
+
+            PizzaOrder pizzaOrder = pizzaOrderDao.getOne(i);
+
+            pizzaOrderList.add(pizzaOrder);
+
+            sumOfPizzaorders += pizzaOrder.getPizzaCalculatedPrice();
+
+        }
+
+        totalOrder.setDiscount(discount);
+
+        totalOrder.setPizzaOrders(pizzaOrderList);
+
+        totalOrder.setRawTotal(sumOfPizzaorders);
+
+//      Applying Discount when Amount is over 500
+        if(sumOfPizzaorders > 500) {
+            Double calculatedPrice = calculatedDiscountPrice(sumOfPizzaorders, discount.getDiscountCalculationPercentage());
+
+            totalOrder.setDiscountedPrice(calculatedPrice);
+        }
+        else{
+            totalOrder.setDiscountedPrice(sumOfPizzaorders);
+        }
+
+
         return totalOrderDao.save(totalOrder);
     }
 

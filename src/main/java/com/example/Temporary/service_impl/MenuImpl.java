@@ -39,7 +39,22 @@ public class MenuImpl implements IMenu {
     }
 
     @Override
-    public Menu updateMenu(Menu menu) {
+    public Menu updateMenu(Long id, MenuDTO menuDTO) {
+
+        Menu menu = menuDao.getOne(id);
+
+        menu.setMenuName(menuDTO.getMenuName());
+
+        List<RealPizza> realPizzas = new ArrayList<RealPizza>();
+
+        for(Long i : menuDTO.getRealPizzaIds()){
+            RealPizza realPizza = realPizzaDao.getOne(i);
+            realPizzas.add(realPizza);
+        }
+
+        menu.setRealPizzas(realPizzas);
+
+
         return menuDao.save(menu);
     }
 

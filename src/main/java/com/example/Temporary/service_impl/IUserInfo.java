@@ -9,7 +9,7 @@ public interface IUserInfo {
 
     UserInfo createUserInfo(UserInfoDTO userInfoDTO);
 
-    UserInfo updateUserInfo(UserInfo userInfo);
+    UserInfo updateUserInfo(Long id, UserInfoDTO userInfoDTO);
 
     String deleteUserInfo(Long id);
 

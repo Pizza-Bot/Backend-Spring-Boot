@@ -12,12 +12,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
 import java.util.List;
 
 @RestController
 @RequestMapping("/menu")
 public class MenuRestController {
+
 
 	@Autowired
 	MenuImpl menuImpl;
@@ -39,10 +39,10 @@ public class MenuRestController {
 			@ApiResponse(responseCode = "400", description = "Bad Request"),
 			@ApiResponse(responseCode = "403", description = "Forbidden"),
 			@ApiResponse(responseCode = "500", description = "Server Error") })
-	@PutMapping
-	public ResponseEntity<Menu> updateMenu(@RequestBody Menu menu) {
-		return new ResponseEntity<>(menuImpl.updateMenu(menu), HttpStatus.OK);
-	}
+	@PutMapping("/{id}")
+    public ResponseEntity<Menu> updateMenu(@PathVariable("id") Long id,  @RequestBody MenuDTO menuDTO){
+        return new ResponseEntity<>(menuImpl.updateMenu(id, menuDTO), HttpStatus.OK);
+    }
 
 	@Operation(summary = "Delete Menu by Menu Id", description = "To delete an Menu by it's Menu id.", responses = {
 			@ApiResponse(responseCode = "200", description = "Success"),
