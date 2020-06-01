@@ -2,15 +2,23 @@ package com.example.Temporary.models;
 
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "Menu")
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Menu {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "menuId")
+	@SequenceGenerator(initialValue=1,allocationSize=1,name="menuId")
     @Column(name = "menu_id")
     private Long menuId;
 
