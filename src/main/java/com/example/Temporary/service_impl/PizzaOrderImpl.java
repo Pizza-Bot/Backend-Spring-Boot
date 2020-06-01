@@ -47,6 +47,7 @@ public class PizzaOrderImpl implements IPizzaOrder {
             sumOfToppings += toppings.getToppingsPrice();
             toppingsList.add(toppings);
         }
+        
 
         pizzaOrder.setToppings(toppingsList);
 
