@@ -56,4 +56,9 @@ public class RealPizzaimpl implements IRealPizza {
     public List<RealPizza> getAll() {
         return realPizzaDao.findAll();
     }
+
+    @Override
+    public RealPizza getByName(String name) {
+        return realPizzaDao.findRealPizzaByName(name);
+    }
 }

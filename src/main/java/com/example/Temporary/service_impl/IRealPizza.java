@@ -17,4 +17,6 @@ public interface IRealPizza {
 
     List<RealPizza> getAll();
 
+    RealPizza getByName(String name);
+
 }
