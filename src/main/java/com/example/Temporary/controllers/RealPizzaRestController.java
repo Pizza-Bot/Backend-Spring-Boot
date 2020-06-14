@@ -71,4 +71,14 @@ public class RealPizzaRestController {
 		return new ResponseEntity<>(iRealPizza.getAll(), HttpStatus.OK);
 	}
 
+	@Operation(summary = "List of RealPizza by Name", description = "To fetch list of RealPizza by Name", responses = {
+			@ApiResponse(responseCode = "200", description = "Success"),
+			@ApiResponse(responseCode = "204", description = "No Content"),
+			@ApiResponse(responseCode = "403", description = "Forbidden"),
+			@ApiResponse(responseCode = "500", description = "Server Error") })
+	@GetMapping("name/{name}")
+	public ResponseEntity<RealPizza> getPizzaByName(@PathVariable("name") String name){
+		return new ResponseEntity<>(iRealPizza.getByName(name), HttpStatus.OK);
+	}
+
 }
