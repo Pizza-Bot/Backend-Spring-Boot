@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class DiscountDTO {
 
-    private String discountName;
+	private String discountName;
 
-    private Double discountCalculationPercentage;
+	private Double discountCalculationPercentage;
 
 }
