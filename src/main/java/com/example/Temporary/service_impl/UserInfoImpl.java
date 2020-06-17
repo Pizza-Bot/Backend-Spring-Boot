@@ -25,7 +25,7 @@ public class UserInfoImpl implements IUserInfo{
 
         UserInfo userInfo = new UserInfo();
 
-        TotalOrder totalOrder = totalOrderDao.getOne(userInfo.getUserInfoId());
+        TotalOrder totalOrder = totalOrderDao.getOne(userInfoDTO.getOrderId());
 
         userInfo.setTotalOrder(totalOrder);
 
